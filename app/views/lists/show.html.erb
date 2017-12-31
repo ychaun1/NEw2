@@ -1,3 +1,4 @@
+<div class="container">
 <table class="table table-striped text-center">
   <tr>
     <td><%= "Task" + ": " +@list.title %></td>
@@ -12,4 +13,5 @@
 <div class="text-center">
   <button class="btn btn-default"  ><i class="fa fa-home fa-1x" aria-hidden="true"></i><%= link_to "Back to index", lists_path %></button>
   <button class="btn btn-default" ><%= link_to "Delete", list_path(@list),method: :delete, data:{ confirm: "Are you sure?" } %></button>
+</div>
 </div>
