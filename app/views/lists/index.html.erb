@@ -14,7 +14,7 @@
     <% @lists.sort{|a,b| a.date <=> b.date}.each do |list|%>
       <tr>
             
-        <td><input type="checkbox" name=""></td>
+        <td><%= check_box_tag :check, true, list.check, data: {url:check_list_path(list), method: :post, remote: true } %></td>
              
         <td> <%= list.title.capitalize %></td>
         <td><%= list.date %></td>

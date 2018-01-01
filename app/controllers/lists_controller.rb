@@ -1,5 +1,5 @@
 class ListsController < ApplicationController
-  before_action :find_list, :only => [:show, :edit, :update, :destroy]
+  before_action :find_list, :only => [:show, :edit, :update, :destroy, :check]
   def index
     @lists = List.all
   end
@@ -35,6 +35,10 @@ class ListsController < ApplicationController
     else
       redirect_to lists_url, :notice => "Error: Due Date Past"
     end
+  end
+
+  def check
+    @list.update(check: !(@list.check))
   end
   
 
