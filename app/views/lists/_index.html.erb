@@ -1,0 +1,34 @@
+
+
+
+<div class="container">
+  <table class="table table-striped table.hover text-center">
+    <tr>
+      <td>Check</td>
+      <td>Task</td>
+      <td>Due Date</td>
+      <td>Show</td>
+      <td>Edit</td>
+      <td>Delete</td>
+    </tr>
+    <% @lists.sort{|a,b| a.date <=> b.date}.each do |list|%>
+      <tr>
+
+        <td><%= check_box_tag :check, false, list.check, data: {url:check_list_path(list), method: :post, remote: true } %></td>
+
+        <td> <%= list.title.capitalize %></td>
+        <td><%= list.date %></td>
+        <td><button class="btn btn-default" ><%= link_to "Show", list_path(list)%></button></td>
+        <td><button type="button" class="btn btn-success"><%= link_to "Edit", edit_list_path(list)%></button></td>
+        <td><button type="button" class="btn btn-warning"><%= link_to "Delete", list_path(list),method: :delete, data:{ confirm: "Are you sure?" } %></button>
+          </td>
+      </tr>
+    <% end %>
+
+  </table>
+
+  <div class="text-center">
+    <button class="btn btn-default"  type="submit"><%= link_to "New List", new_list_path %></button>
+  </div>
+
+</div>
