@@ -1,3 +1,3 @@
 
-  $("#list").append("<%=j render(:partial => "tr", :locals => { :list => @list })%>");
+  $("#list").append("<tr> <%=j render(:partial => "tr", :locals => { :list => @list })%> </tr>");
   $("#new_list").trigger('reset');
