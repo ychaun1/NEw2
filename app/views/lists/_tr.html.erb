@@ -1,32 +1,19 @@
-<tr>
+
     <td class="my-pointer">
         <span class="my-font glyphicon glyphicon-unchecked" aria-hidden="true" onclick="doneToggle()"></span>
         <span class="my-status-done-true my-font glyphicon glyphicon-check" aria-hidden="true" onclick="doneToggle()"></span>
     </td>
 
-    <td>
+    <td id="list-title-<%= list.id %>">
       <small>
           <%= list.title %>
       </small>
-      <p class="accordion-toggle" data-toggle="collapse" data-parent="#accordion">
-          <%= list.description %>
-      </p>
-      <button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-        Show Detail
-      </button>
-      <div class="collapse" id="collapseExample">
-        <div class="well">
-          <p> Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry </p>
-          <button type="button" class="my-btn my-btn-transparent text-info glyphicon glyphicon-pencil" onclick="editToggle()"></button>
-          <button type="button" class="my-btn my-btn-transparent text-danger glyphicon glyphicon-trash" data-toggle="modal" data-target="#my-alert" onclick="deleteCheck()"></button>
-        </div>
-
-      </div>
 
     </td>
 
     <td class="my-operation">
+      <%= link_to  edit_list_path(list), :remote => true do %>
         <button type="button" class="my-btn my-btn-transparent text-info glyphicon glyphicon-pencil" onclick="editToggle()"></button>
+      <% end %>
         <button type="button" class="my-btn my-btn-transparent text-danger glyphicon glyphicon-trash" data-toggle="modal" data-target="#my-alert" onclick="deleteCheck()"></button>
     </td>
-</tr>

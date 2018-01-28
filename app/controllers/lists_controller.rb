@@ -21,14 +21,22 @@ class ListsController < ApplicationController
 
   end
 
+  def edit
+
+    respond_to do |format|
+      format.html
+      format.js 
+    end
+  end
 
 
   def update
 
-    if @list.update_attributes(list_params)
-      redirect_to lists_url
-    else
-      render :action => :edit
+    if @list.update(list_params)
+      respond_to do |format|
+        format.html
+        format.js
+      end
     end
   end
 

@@ -1,0 +1,5 @@
+var list_title = $("#list-title-<%= @list.id %>");
+
+<% html = j( render :partial => "form", :locals => { :list => @list } ) %>
+
+list_title.html("<%= html %>")

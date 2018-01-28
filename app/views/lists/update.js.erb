@@ -1,0 +1,3 @@
+
+<% html = j( render :partial => "tr", :locals => { :list => @list } ) %>
+$("#list-<%= @list.id %>").html("<%= html %>")
