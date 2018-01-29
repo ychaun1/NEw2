@@ -24,8 +24,7 @@ class ListsController < ApplicationController
   def edit
 
     respond_to do |format|
-      format.html
-      format.js 
+      format.js
     end
   end
 
@@ -34,18 +33,16 @@ class ListsController < ApplicationController
 
     if @list.update(list_params)
       respond_to do |format|
-        format.html
         format.js
       end
     end
   end
 
   def destroy
-    if List.find(params[:id]).date >= Date.today
-      @list.destroy
-      redirect_to lists_url
-    else
-      redirect_to lists_url, :notice => "Error: Due Date Past"
+    if  @list.destroy
+      respond_to do |format|
+        format.js
+      end
     end
   end
 
